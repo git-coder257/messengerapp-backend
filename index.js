@@ -1,8 +1,13 @@
 import { express } from "express";
 
+
+import cors from "cors"
+
+
 const app = express()
 
 app.use(express.json())
+app.use(cors())
 
 app.get("/", (req, res) => {
     res.json({
@@ -11,7 +16,6 @@ app.get("/", (req, res) => {
 })
 
 // import express, { response } from "express"
-// import cors from "cors"
 // import pkg from 'pg';
 // // import fetch from "node-fetch";
 
@@ -21,23 +25,26 @@ app.get("/", (req, res) => {
 
 // const { Pool } = pkg;
 
+// // const pool = new Pool({
+// //   host: "localhost",
+// //   user: "postgres",
+// //   password: "password",
+// //   database: "orsomworld",
+// //   port: "5433",
+// // })
+
 // const pool = new Pool({
-//   host: "localhost",
-//   user: "postgres",
-//   password: "password",
-//   database: "orsomworld",
-//   port: "5433",
+//   host: "ec2-54-220-223-3.eu-west-1.compute.amazonaws.com",
+//   user: "fqqxofukvkocqq",
+//   password: "9e43d996e5a6d1e39768b738dc625c62656159aa1b6795b5fa02e47f4e495376",
+//   database: "dckq3injkdrlea",
+//   port: "5432",
 // })
 
-// export const query = (text, params) => pool.query(text, params)
+// // export const query = (text, params) => pool.query(text, params)
 
-// // const imageconverter = async (url) => {
-// //     // const blob = await (await fetch(url)).blob();
+// const query = (text, params) => pool.query(text, params)
 
-// //     await(await fetch("blob:http://localhost:3001/933ee5eb-2bd5-40f2-a32f-f422c6b783f4")).blob()
-
-// //     console.log(URL.createObjectURL(blob))
-// // }
 
 // app.post("/users", async(req, res) => {
 //     await query("INSERT INTO users (username, password) VALUES($1, $2);", [req.body.username, req.body.password])
