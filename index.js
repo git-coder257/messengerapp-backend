@@ -1,23 +1,18 @@
-import { express } from "express";
-
-
-import cors from "cors"
-
-
+const express = require('express')
 const app = express()
+const port = 3000
 
-app.use(express.json())
-app.use(cors())
+app.get('/', (req, res) => {
+  res.send('Hello World!')
+})
 
-app.get("/", (req, res) => {
-    res.json({
-        hello: true
-    })
+app.listen(port, () => {
+  console.log(`Example app listening on port ${port}`)
 })
 
 // import express, { response } from "express"
 // import pkg from 'pg';
-// // import fetch from "node-fetch";
+// import cors from "cors"
 
 // const app = express()
 // app.use(cors())
@@ -25,31 +20,36 @@ app.get("/", (req, res) => {
 
 // const { Pool } = pkg;
 
-// // const pool = new Pool({
-// //   host: "localhost",
-// //   user: "postgres",
-// //   password: "password",
-// //   database: "orsomworld",
-// //   port: "5433",
-// // })
-
 // const pool = new Pool({
-//   host: "ec2-54-220-223-3.eu-west-1.compute.amazonaws.com",
-//   user: "fqqxofukvkocqq",
-//   password: "9e43d996e5a6d1e39768b738dc625c62656159aa1b6795b5fa02e47f4e495376",
-//   database: "dckq3injkdrlea",
-//   port: "5432",
+//   host: "localhost",
+//   user: "postgres",
+//   password: "password",
+//   database: "orsomworld",
+//   port: "5433",
 // })
+
+// // const pool = new Pool({
+// //   host: "ec2-54-220-223-3.eu-west-1.compute.amazonaws.com",
+// //   user: "fqqxofukvkocqq",
+// //   password: "9e43d996e5a6d1e39768b738dc625c62656159aa1b6795b5fa02e47f4e495376",
+// //   database: "dckq3injkdrlea",
+// //   port: "5432",
+// // })
 
 // // export const query = (text, params) => pool.query(text, params)
 
 // const query = (text, params) => pool.query(text, params)
 
-
-// app.post("/users", async(req, res) => {
-//     await query("INSERT INTO users (username, password) VALUES($1, $2);", [req.body.username, req.body.password])
+// app.get("/", (req, res) => {
+//     res.json({
+//         hello: true
+//     })
 // })
 
+// app.post("/users", async(req, res) => {
+//         await query("INSERT INTO users (username, password) VALUES($1, $2);", [req.body.username, req.body.password])
+//     })
+    
 // app.get("/users/:username", async(req, res) => {    
 //     let result = await query("SELECT * FROM users WHERE username = $1;", [req.params.username])
 
