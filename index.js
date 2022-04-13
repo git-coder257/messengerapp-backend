@@ -131,8 +131,8 @@ app.post("/makepersonadmin", async (req, res) => {
     query("INSERT INTO adminsofchat (chat_id, username, user_id) VALUES ($1, $2, $3);", [chat_id, username, id])
 })
 
-app.get("/ispersonadmin", async (req, res) => {
-    const { username, password, chat_id } = req.body
+app.get("/ispersonadmin/:username/:password/:chat_id", async (req, res) => {
+    const { username, password, chat_id } = req.params
     
     let ispersonadmin = false
 
@@ -145,6 +145,8 @@ app.get("/ispersonadmin", async (req, res) => {
     } catch (error) {
         
     }
+
+    console.log(username, password, chat_id)
 
     res.json({
         personadmin: ispersonadmin
