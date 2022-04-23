@@ -29,11 +29,12 @@ const pool = new Pool({
 const query = (text, params) => pool.query(text, params)
 
 app.post("/users", async(req, res) => {
-        await query("INSERT INTO users (username, password) VALUES($1, $2);", [req.body.username, req.body.password])
-    })
-    
-app.get("/users/:username", async(req, res) => {    
-    let result = await query("SELECT * FROM users WHERE username = $1;", [req.params.username])
+    await query("INSERT INTO users (username, password) VALUES($1, $2);", [req.body.username, req.body.password])
+})
+
+app.get("/users/:username/:password", async(req, res) => {    
+
+    let result = await query("SELECT * FROM users WHERE username = $1 AND password = $2;", [req.params.username, req.params.password])
 
     console.log(result.rows)
 
